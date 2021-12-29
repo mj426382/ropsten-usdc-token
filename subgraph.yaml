@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
@@ -14,6 +14,11 @@ dataSources:
       language: wasm/assemblyscript
       entities:
         - Approval
+        - Blacklisted
+        - Burn
+        - Mint
+        - OwnershipTransferred
+        - SetBurnBounds
         - Transfer
       abis:
         - name: UsdcToken
@@ -21,6 +26,16 @@ dataSources:
       eventHandlers:
         - event: Approval(indexed address,indexed address,uint256)
           handler: handleApproval
+        - event: Blacklisted(indexed address,bool)
+          handler: handleBlacklisted
+        - event: Burn(indexed address,uint256)
+          handler: handleBurn
+        - event: Mint(indexed address,uint256)
+          handler: handleMint
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: SetBurnBounds(uint256,uint256)
+          handler: handleSetBurnBounds
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/mapping.ts
