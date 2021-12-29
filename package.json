@@ -1,0 +1,16 @@
+{
+  "name": "ropsten-usdc-token",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ mj426382/ropsten-usdc-token",
+    "create-local": "graph create --node http://localhost:8020/ mj426382/ropsten-usdc-token",
+    "remove-local": "graph remove --node http://localhost:8020/ mj426382/ropsten-usdc-token",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 mj426382/ropsten-usdc-token"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.24.1",
+    "@graphprotocol/graph-ts": "0.24.1"
+  }
+}
